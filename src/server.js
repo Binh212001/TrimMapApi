@@ -36,7 +36,7 @@ mongoose
   })
   .then(() => {
     app.listen(5000, () => {
-      console.log(`Running port 5000`);
+      console.log(`Running port 4000`);
     });
   })
   .catch((err) => {
