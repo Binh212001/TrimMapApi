@@ -88,10 +88,22 @@ const getByDistrict = async (req, res) => {
   }
 };
 
+
+const getById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const destination = await Destination.findById(id);
+
+    return ResponseData.created(res, destination);
+  } catch (error) {
+    ResponseData.internalServer(res, error);
+  }
+};
 module.exports = {
   create,
   getAll,
   getByName,
   getByProvince,
   getByDistrict,
+  getById,
 };
