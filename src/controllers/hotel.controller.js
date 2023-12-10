@@ -89,4 +89,16 @@ const getByDistrict = async (req, res) => {
   }
 };
 
-module.exports = { create, getAll, getByName, getByDistrict, getByProvince };
+
+const getById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const ht = await Holtel.findById(id);
+
+    return ResponseData.created(res, ht);
+  } catch (error) {
+    ResponseData.internalServer(res, error);
+  }
+};
+
+module.exports = { create, getAll, getByName, getByDistrict, getByProvince , getById };
