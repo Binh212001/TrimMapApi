@@ -94,4 +94,15 @@ const addMeal = async (req, res) => {
   }
 };
 
-module.exports = { create, getAll, getByName, update, addMeal };
+const getById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const rst = await Holtel.findById(id);
+
+    return ResponseData.created(res, rst);
+  } catch (error) {
+    ResponseData.internalServer(res, error);
+  }
+};
+
+module.exports = { create, getAll, getByName, update, addMeal, getById };
