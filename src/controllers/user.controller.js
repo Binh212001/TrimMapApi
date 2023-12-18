@@ -50,7 +50,7 @@ const login = async (req, res) => {
     if (!user) {
       ResponseData.badRequest(
         res,
-        "Thông tin tài khoản hooacwj mật khẩu không chính xác"
+        null
       );
     }
 
