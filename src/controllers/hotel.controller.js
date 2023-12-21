@@ -1,15 +1,13 @@
-const Holtel = require('../models/hotel.model');
-const ResponseData = require('../data/ResponeData');
+const Holtel = require("../models/hotel.model");
+const ResponseData = require("../data/ResponeData");
 
 const create = async (req, res) => {
   try {
     const { name, description, province, district, type, price } = req.body;
     const image = req.file ? req.file.filename : null;
 
-    console.log(image);
-
     if (!name || !description || !province || !type || !image || !district || !price) {
-      ResponseData.badRequest(res, 'Vui lòng điền đẩy đủ các trường');
+      ResponseData.badRequest(res, "Vui lòng điền đẩy đủ các trường");
     }
 
     const newHoltel = new Holtel({
@@ -19,7 +17,7 @@ const create = async (req, res) => {
       province,
       type,
       district,
-      price,
+      price: parseInt(price),
     });
 
     await newHoltel.save();
@@ -89,7 +87,6 @@ const getByDistrict = async (req, res) => {
   }
 };
 
-
 const getById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -101,4 +98,4 @@ const getById = async (req, res) => {
   }
 };
 
-module.exports = { create, getAll, getByName, getByDistrict, getByProvince , getById };
+module.exports = { create, getAll, getByName, getByDistrict, getByProvince, getById };

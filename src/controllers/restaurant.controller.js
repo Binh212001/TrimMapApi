@@ -30,7 +30,6 @@ const create = async (req, res) => {
 const getAll = async (req, res) => {
   try {
     const restaurants = await Restaurant.find();
-    console.log("🚀 ~ file: restaurant.controller.js:33 ~ getAll ~ restaurants:", restaurants);
 
     return ResponseData.created(res, {
       restaurants,
