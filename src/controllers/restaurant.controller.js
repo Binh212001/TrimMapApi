@@ -96,7 +96,7 @@ const addMeal = async (req, res) => {
 const getById = async (req, res) => {
   try {
     const { id } = req.params;
-    const rst = await Holtel.findById(id);
+    const rst = await Restaurant.findById(id);
 
     return ResponseData.created(res, rst);
   } catch (error) {

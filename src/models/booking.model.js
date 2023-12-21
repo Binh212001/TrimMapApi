@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 // Define the booking schema
 const bookingSchema = new mongoose.Schema({
   dateFrom: {
-    type: Date,
+    type: String,
     required: true,
   },
   dateTo: {
-    type: Date,
+    type: String,
     required: true,
   },
   fullName: {
@@ -22,7 +22,6 @@ const bookingSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true,
   },
   note: {
     type: String,
